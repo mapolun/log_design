@@ -22,5 +22,9 @@ class MeiliSearchService implements AopInterface
         if (!$write) {
             echo $message;
         }
+
+
+
+
     }
 }
