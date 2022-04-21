@@ -3,7 +3,7 @@
  * Author mapo
  * Date   2022/4/21
  */
-namespace LoggerDesign\Library;
+namespace LoggerDesign\Proxy;
 
 class Proxy extends BaseProxy
 {
@@ -35,7 +35,7 @@ class Proxy extends BaseProxy
             throw new \Exception("{$name} 方法不能执行");
         }
 
-        $this->data = $arguments;
+        $this->data = array_merge([$name], $arguments);
 
         /*
          |--------------------------------------------------------------------------

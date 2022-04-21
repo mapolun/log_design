@@ -5,9 +5,6 @@
  */
 namespace LoggerDesign\Proxy;
 
-
-use LoggerDesign\Library\Proxy;
-
 /**
  * Class LoggerProxy
  * @method info(string $message)

@@ -4,7 +4,7 @@
  * Date   2022/4/21
  */
 
-namespace LoggerDesign\Library;
+namespace LoggerDesign\Proxy;
 
 abstract class BaseProxy
 {

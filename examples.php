@@ -4,43 +4,14 @@
  * Date   2022/4/21
  */
 
+use LoggerDesign\Log;
+use Yosymfony\Toml\Toml;
+
 require './vendor/autoload.php';
 
-use LoggerDesign\AopService\MeiliSearchService;
-use LoggerDesign\AopService\TextService;
-use LoggerDesign\Library\Containers;
-use LoggerDesign\Logger;
-use LoggerDesign\Proxy\LoggerProxy;
-
-$logger = getLogger();
-$logger->info("测试");
-
-function getLogger() : LoggerProxy
-{
-    try{
-
-        //代理注入logger类
-        $logger = new LoggerProxy(Logger::class);
-
-        //设置logger后置服务，切面
-        $convertors = getAfterGroup();
-        $logger->setConvertors($convertors);
-
-        return $logger;
-    }catch (Exception $exception) {
-        echo $exception->getMessage() . PHP_EOL;die;
-    }
-}
-
-/**
- * @throws ReflectionException
- */
-function getAfterGroup() : array
-{
-    $containers = new Containers();
-    //加载textService
-    $containers->add("text",TextService::class);
-    //价值meilisearchService
-    $containers->add("meilisearch",MeiliSearchService::class);
-    return $containers->get();
-}
+$log = Log::new();
+$log->info("测试");
+//$log->debug("测试");
+//$log->waring("测试");
+//$log->error("测试");
+//$log->notice("测试");
