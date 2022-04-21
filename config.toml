@@ -1,0 +1,31 @@
+engine = ["text", "meilisearch"] # 存储引擎 支持text,meilisearch,mysql,redis,mongodb,可支持同时存储多引擎
+
+#文本存储配置
+[text]
+    dir = "./log"
+
+#meilisearch配置
+[meiLiSearch]
+    host = "192.168.2.222"
+    port = "6701"
+    auth = ""
+
+#mysql配置
+[mysql]
+    host = "192.168.2.222"
+    database = "xmt"
+    userName = "root"
+    password = "Ezsv9499"
+    port = 3306
+
+#redis配置
+[redis]
+    host = "192.168.2.222"
+    port = "6701"
+    auth = ""
+
+#mongodb配置
+[mongodb]
+    host = "192.168.2.222"
+    port = "6701"
+    auth = ""

@@ -4,7 +4,7 @@
  * Date   2022/4/21
  */
 
-namespace LoggerDesign;
+namespace LoggerDesign\Library;
 
 //日志服务
 //实现记录日志后同时存储本地文件和meilisearch服务

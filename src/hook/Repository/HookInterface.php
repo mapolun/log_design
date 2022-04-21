@@ -4,9 +4,9 @@
  * Date   2022/4/21
  */
 
-namespace LoggerDesign\AopService;
+namespace LoggerDesign\Hook\Repository;
 
-interface AopInterface
+interface HookInterface
 {
     public function before(...$arguments);
 
