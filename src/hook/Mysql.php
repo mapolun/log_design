@@ -9,7 +9,7 @@ namespace LoggerDesign\Hook;
 
 use LoggerDesign\Hook\Repository\HookInterface;
 
-class MongoDbHook implements HookInterface
+class Mysql implements HookInterface
 {
     public function before(...$arguments)
     {

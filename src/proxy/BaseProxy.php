@@ -22,12 +22,14 @@ abstract class BaseProxy
     //前置操作,观察者模式实现
     protected function before()
     {
-        if ($this->convertors) {
-            foreach ($this->convertors as $convertor) {
+        if (!$this->convertors) {
+            return;
+        }
 
-                if (method_exists($convertor, 'before')) {
-                    $convertor->before(...$this->data);
-                }
+        foreach ($this->convertors as $convertor) {
+
+            if (method_exists($convertor, 'before')) {
+                $convertor->before(...$this->data);
             }
         }
     }
@@ -35,12 +37,14 @@ abstract class BaseProxy
     //后置操作,观察者模式实现
     protected function after()
     {
-        if ($this->convertors) {
-            foreach ($this->convertors as $convertor) {
+        if (!$this->convertors) {
+            return;
+        }
 
-                if (method_exists($convertor, 'after')) {
-                    $convertor->after(...$this->data);
-                }
+        foreach ($this->convertors as $convertor) {
+
+            if (method_exists($convertor, 'after')) {
+                $convertor->after(...$this->data);
             }
         }
     }
