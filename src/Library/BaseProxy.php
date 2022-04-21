@@ -11,6 +11,8 @@ abstract class BaseProxy
     //容器
     protected array $convertors = [];
 
+    protected array $data = [];
+
     public function setConvertors(array $convertors) : BaseProxy
     {
         $this->convertors = $convertors;
@@ -24,7 +26,7 @@ abstract class BaseProxy
             foreach ($this->convertors as $convertor) {
 
                 if (method_exists($convertor, 'before')) {
-                    $convertor->before();
+                    $convertor->before(...$this->data);
                 }
             }
         }
@@ -37,7 +39,7 @@ abstract class BaseProxy
             foreach ($this->convertors as $convertor) {
 
                 if (method_exists($convertor, 'after')) {
-                    $convertor->after();
+                    $convertor->after(...$this->data);
                 }
             }
         }

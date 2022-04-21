@@ -35,6 +35,8 @@ class Proxy extends BaseProxy
             throw new \Exception("{$name} 方法不能执行");
         }
 
+        $this->data = $arguments;
+
         /*
          |--------------------------------------------------------------------------
          | 前置操作

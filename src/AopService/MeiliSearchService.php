@@ -5,15 +5,22 @@
  */
 namespace LoggerDesign\AopService;
 
+//保存日志于meilisearch中
 class MeiliSearchService implements AopInterface
 {
-    public function before()
+    public function before(...$arguments){}
+
+    public function after(...$arguments)
     {
-        echo "[meilisearch] [before]" . PHP_EOL;
+        $this->save(sprintf("[meilisearch] [after] %s", $arguments[0]??''));
     }
 
-    public function after()
+    private function save(string $message, bool $write = true)
     {
-        echo "[meilisearch] [after]" . PHP_EOL;
+        $message = sprintf("%s==>%s%s", date("Y-m-d H:i:s"), $message, PHP_EOL);
+
+        if (!$write) {
+            echo $message;
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace LoggerDesign\AopService;
 
 interface AopInterface
 {
-    public function before();
+    public function before(...$arguments);
 
-    public function after();
+    public function after(...$arguments);
 }

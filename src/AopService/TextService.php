@@ -5,15 +5,27 @@
  */
 namespace LoggerDesign\AopService;
 
+//保存日志于文本中
 class TextService implements AopInterface
 {
-    public function before()
+    public function before(...$arguments){}
+
+    public function after(...$arguments)
     {
-        echo "[text] [before]" . PHP_EOL;
+        $this->save(sprintf("[text] [after] %s", $arguments[0]??''));
     }
 
-    public function after()
+    private function save(string $message)
     {
-        echo "[text] [after]" . PHP_EOL;
+        if (!is_dir('./log')) {
+            mkdir('./log',0755);
+        }
+        $message = sprintf("%s==>%s%s", date("Y-m-d H:i:s"), $message, PHP_EOL);
+
+        file_put_contents(
+            sprintf('./log/%s.log', date("Ymd")),
+            $message,
+            FILE_APPEND
+        );
     }
 }
