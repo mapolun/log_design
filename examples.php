@@ -13,16 +13,17 @@ use LoggerDesign\Logger;
 use LoggerDesign\Proxy\LoggerProxy;
 
 $logger = getLogger();
-$logger->info("123");
+$logger->info("测试");
 
 function getLogger() : LoggerProxy
 {
     try{
 
+        //代理注入logger类
         $logger = new LoggerProxy(Logger::class);
 
+        //设置logger后置服务，切面
         $convertors = getAfterGroup();
-
         $logger->setConvertors($convertors);
 
         return $logger;
@@ -37,7 +38,9 @@ function getLogger() : LoggerProxy
 function getAfterGroup() : array
 {
     $containers = new Containers();
+    //加载textService
     $containers->add("text",TextService::class);
+    //价值meilisearchService
     $containers->add("meilisearch",MeiliSearchService::class);
     return $containers->get();
 }
