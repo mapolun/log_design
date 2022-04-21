@@ -5,8 +5,6 @@
  */
 namespace LoggerDesign;
 
-use LoggerDesign\Hook\MeiLiSearchHook;
-use LoggerDesign\Hook\TextHook;
 use LoggerDesign\Library\Containers;
 use LoggerDesign\Library\Engine;
 use LoggerDesign\Library\LogException;

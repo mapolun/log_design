@@ -19,7 +19,6 @@ class Containers
         }
 
         if (!isset($this->convertors[$this->name])) {
-
             return null;
         }
 
