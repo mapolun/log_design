@@ -12,26 +12,31 @@ class Logger
 {
     public function info(string $message)
     {
-        echo "logger [info] {$message}" . PHP_EOL;
+        $this->console($message, 'info');
     }
 
     public function error(string $message)
     {
-        echo "logger [error] {$message}" . PHP_EOL;
+        $this->console($message, 'error');
     }
 
     public function debug(string $message)
     {
-        echo "logger [debug] {$message}" . PHP_EOL;
+        $this->console($message, 'debug');
     }
 
     public function waring(string $message)
     {
-        echo "logger [waring] {$message}" . PHP_EOL;
+        $this->console($message, 'waring');
     }
 
     public function notice(string $message)
     {
-        echo "logger [notice] {$message}" . PHP_EOL;
+        $this->console($message, 'notice');
+    }
+
+    public function console(string $message, string $level)
+    {
+        echo "logger [{$level}] {$message}" . PHP_EOL;
     }
 }
