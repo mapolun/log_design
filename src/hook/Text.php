@@ -5,18 +5,18 @@
  */
 namespace LoggerDesign\Hook;
 
-//保存日志于meilisearch中
+//保存日志于文本中
 use LoggerDesign\Hook\Repository\HookInterface;
-use LoggerDesign\Engine\MeiLiSearch;
+use LoggerDesign\Engine\Text as TextEngine;
 
-class MeiLiSearchHook implements HookInterface
+class Text implements HookInterface
 {
     public function before(...$arguments){}
 
     public function after(...$arguments)
     {
         list($level, $message) = $arguments;
-        $message = sprintf("[%s] [after] %s", $level, $message);
-        MeiLiSearch::create()->setData($message)->save();
+        $data = sprintf("[%s] [after] %s", $level, $message);
+        TextEngine::create()->setData($data)->save();
     }
 }

@@ -9,7 +9,7 @@ namespace LoggerDesign\Hook;
 
 use LoggerDesign\Hook\Repository\HookInterface;
 
-class RedisHook implements HookInterface
+class MongoDb implements HookInterface
 {
     public function before(...$arguments)
     {

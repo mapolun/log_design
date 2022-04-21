@@ -6,20 +6,20 @@
 
 namespace LoggerDesign\Library;
 
-use LoggerDesign\Hook\MeiLiSearchHook;
-use LoggerDesign\Hook\MongoDbHook;
-use LoggerDesign\Hook\MysqlHook;
-use LoggerDesign\Hook\RedisHook;
-use LoggerDesign\Hook\TextHook;
+use LoggerDesign\Hook\MeiLiSearch;
+use LoggerDesign\Hook\MongoDb;
+use LoggerDesign\Hook\Mysql;
+use LoggerDesign\Hook\Redis;
+use LoggerDesign\Hook\Text;
 
 class Engine
 {
     protected static array $engines = [
-        'text' => TextHook::class,
-        'meilisearch' => MeiLiSearchHook::class,
-        'mysql' => MysqlHook::class,
-        'redis' => RedisHook::class,
-        'mongodb' => MongoDbHook::class,
+        'text' => Text::class,
+        'meilisearch' => MeiLiSearch::class,
+        'mysql' => Mysql::class,
+        'redis' => Redis::class,
+        'mongodb' => MongoDb::class,
     ];
 
     public static function get(string $name)

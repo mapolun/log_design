@@ -9,7 +9,7 @@ namespace LoggerDesign\Hook;
 
 use LoggerDesign\Hook\Repository\HookInterface;
 
-class MysqlHook implements HookInterface
+class Redis implements HookInterface
 {
     public function before(...$arguments)
     {
