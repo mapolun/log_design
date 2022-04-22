@@ -23,6 +23,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yosymfony/toml" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yosymfony/parser-utils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/catfan/medoo" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
