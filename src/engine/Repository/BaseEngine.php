@@ -8,7 +8,7 @@ namespace LoggerDesign\Engine\Repository;
 
 use JetBrains\PhpStorm\Pure;
 
-class BaseStorage
+class BaseEngine
 {
     protected mixed $data;
 

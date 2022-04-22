@@ -6,10 +6,10 @@
 
 namespace LoggerDesign\Engine;
 
-use LoggerDesign\Engine\Repository\BaseStorage;
-use LoggerDesign\Engine\Repository\StorageInterface;
+use LoggerDesign\Engine\Repository\BaseEngine;
+use LoggerDesign\Engine\Repository\EngineInterface;
 
-class Text extends BaseStorage implements StorageInterface
+class Text extends BaseEngine implements EngineInterface
 {
     public function save()
     {

@@ -7,6 +7,7 @@
 namespace LoggerDesign\Hook;
 
 
+use LoggerDesign\Engine\Mysql as MysqlEngine;
 use LoggerDesign\Hook\Repository\HookInterface;
 
 class Mysql implements HookInterface
@@ -17,6 +18,8 @@ class Mysql implements HookInterface
     }
     public function after(...$arguments)
     {
-        // TODO: Implement after() method.
+        list($level, $message) = $arguments;
+        $message = sprintf("[%s] [after] %s", $level, $message);
+        MysqlEngine::create()->setData($message)->save();
     }
 }

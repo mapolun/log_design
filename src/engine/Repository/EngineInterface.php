@@ -6,7 +6,7 @@
 
 namespace LoggerDesign\Engine\Repository;
 
-interface StorageInterface
+interface EngineInterface
 {
     public function save();
 }

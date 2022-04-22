@@ -16,6 +16,7 @@
         "php" : ">=8.0",
         "meilisearch/meilisearch-php": "^0.22.0",
         "guzzlehttp/guzzle": "^7.4",
-        "yosymfony/toml": "^1.0"
+        "yosymfony/toml": "^1.0",
+        "catfan/medoo": "^2.1"
     }
 }
