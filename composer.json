@@ -17,6 +17,8 @@
         "meilisearch/meilisearch-php": "^0.22.0",
         "guzzlehttp/guzzle": "^7.4",
         "yosymfony/toml": "^1.0",
-        "catfan/medoo": "^2.1"
+        "catfan/medoo": "^2.1",
+      "ext-mongodb": "*",
+      "ext-redis": "*"
     }
 }

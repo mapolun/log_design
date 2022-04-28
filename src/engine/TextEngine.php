@@ -7,27 +7,26 @@
 namespace LoggerDesign\Engine;
 
 use LoggerDesign\Engine\Repository\BaseEngine;
-use LoggerDesign\Engine\Repository\EngineInterface;
 
-class Text extends BaseEngine implements EngineInterface
+class TextEngine extends BaseEngine
 {
-    public function save()
+    public static function save($data)
     {
-        $data = $this->data;
         if (!$data) {
             return;
         }
 
+        $config = self::getConfig('text');
         if (is_array($data)) {
             $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         }
-        if (!is_dir('./log')) {
-            mkdir('./log',0755);
+        if (!is_dir($config['dir'])) {
+            mkdir($config['dir'],0755);
         }
         $message = sprintf("%s==>%s%s", date("Y-m-d H:i:s"), $data, PHP_EOL);
 
         file_put_contents(
-            sprintf('./log/%s.log', date("Ymd")),
+            sprintf('%s/%s.log', $config['dir'], date("Ymd")),
             $message,
             FILE_APPEND
         );

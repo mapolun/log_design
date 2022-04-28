@@ -8,5 +8,4 @@ namespace LoggerDesign\Engine\Repository;
 
 interface EngineInterface
 {
-    public function save();
 }

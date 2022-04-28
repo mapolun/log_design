@@ -7,7 +7,7 @@ namespace LoggerDesign\Hook;
 
 //保存日志于文本中
 use LoggerDesign\Hook\Repository\HookInterface;
-use LoggerDesign\Engine\Text as TextEngine;
+use LoggerDesign\Engine\TextEngine as TextEngine;
 
 class Text implements HookInterface
 {
@@ -17,6 +17,6 @@ class Text implements HookInterface
     {
         list($level, $message) = $arguments;
         $data = sprintf("[%s] [after] %s", $level, $message);
-        TextEngine::create()->setData($data)->save();
+        TextEngine::save($data);
     }
 }

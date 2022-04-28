@@ -1,25 +1,36 @@
 <?php
 /**
  * Author mapo
- * Date   2022/4/21
+ * Date   2022/4/27
  */
 
 namespace LoggerDesign\Engine\Repository;
 
-use JetBrains\PhpStorm\Pure;
+
+use Yosymfony\Toml\Toml;
 
 class BaseEngine
 {
-    protected mixed $data;
+    protected $engine;
 
-    #[Pure] public static function create(): static
+    protected array $config;
+
+    public function __construct()
     {
-        return new static();
+        $class = get_called_class();
+        $end = explode('\\', $class);
+        $engine = strtolower(strstr(end($end),"Engine", true));
+        $this->config = self::getConfig($engine);
     }
 
-    public function setData(mixed $data) : static
+    protected static function getConfig(string $engine) : array
     {
-        $this->data = $data;
-        return $this;
+        $configs = Toml::parseFile('./config.toml');
+        return $configs[$engine] ?? [];
+    }
+
+    public static function create(): static
+    {
+        return new static();
     }
 }
