@@ -7,7 +7,7 @@
 namespace LoggerDesign\Hook;
 
 
-use LoggerDesign\Engine\Mysql as MysqlEngine;
+use LoggerDesign\Engine\MysqlEngine;
 use LoggerDesign\Hook\Repository\HookInterface;
 
 class Mysql implements HookInterface
@@ -20,6 +20,12 @@ class Mysql implements HookInterface
     {
         list($level, $message) = $arguments;
         $message = sprintf("[%s] [after] %s", $level, $message);
-        MysqlEngine::create()->setData($message)->save();
+
+        $engine = new MysqlEngine();
+        $db = $engine->getEngine();
+        $db->insert("log", [
+            'data_json' => json_encode(['message'=>$message], JSON_UNESCAPED_UNICODE),
+            'create_time' => time(),
+        ]);
     }
 }
